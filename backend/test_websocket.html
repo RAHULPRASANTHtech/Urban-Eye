@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebSocket Test</title>
+</head>
+
+<body>
+
+<h2>Smart City WebSocket Test</h2>
+
+<div id="status">
+    Connecting...
+</div>
+
+<div id="messages">
+</div>
+
+<script>
+
+const status = document.getElementById("status");
+const messages = document.getElementById("messages");
+
+const socket = new WebSocket(
+    "ws://127.0.0.1:8000/ws"
+);
+
+
+socket.onopen = function() {
+
+    status.innerText =
+        "WebSocket Connected";
+
+};
+
+
+socket.onmessage = function(event) {
+
+    const message =
+        document.createElement("p");
+
+    message.innerText =
+        "Received: " + event.data;
+
+    messages.appendChild(message);
+
+};
+
+
+socket.onclose = function() {
+
+    status.innerText =
+        "WebSocket Disconnected";
+
+};
+
+
+socket.onerror = function(error) {
+
+    status.innerText =
+        "WebSocket Error";
+
+};
+
+</script>
+
+</body>
+
+</html>
