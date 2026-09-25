@@ -1,0 +1,2 @@
+import { Outlet } from 'react-router-dom'; import Sidebar from './Sidebar'; import Header from './Header';
+export default function AppLayout(){return <div className="flex min-h-screen bg-[#07111f]"><Sidebar/><div className="min-w-0 flex-1"><Header/><main className="min-h-[calc(100vh-4rem)] bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,.05),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,.04),transparent_25%)] p-4 sm:p-6"><Outlet/></main></div></div>}
